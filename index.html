@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+</head>
+<body>
+  <div id="app">
+      
+    {{ user }}
+    <div class="contianer">
+        <div class="row">
+            <p class="jumboton">
+                login : <input type="text" v-model="user" name="name" id="name"/>
+                vous aver étre connect {{user}}</p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+      <h4>afficher mes produit</h4>  
+        <div class="col-3" v-for="produit in produits">
+            <div class="jumbotron">
+               {{produit}}
+               <button v-on:click="commander(produit)" >commander</button>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h4>afficher mes command</h4>  
+          <div class="col-3" v-for="commande in commandes">
+              <div class="jumbotron">
+                - {{commande}}
+                
+                 
+              </div>
+          </div>
+      </div>
+  </div>
+    
+    <script>
+      var app=new Vue({
+      el:"#app",
+      data:{
+          user:"lahoucine hrird",
+          produits:["pitza","Tacos","Maro"],
+          commandes:[]
+      },
+      methods:{
+          commander:function(produit){
+            this.commandes.push(produit);
+          }
+      }
+  })
+    </script>
+</body>
+</html>
+
+
